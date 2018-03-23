@@ -1,0 +1,26 @@
+'''
+你是一个软件开发者，现在需要随机生成50个激活码。写一个函数，其作用是根据参数生成激活码。
+
+1. 唯一的参数为一个正整数
+2. 函数生成的激活码由一串任意随机字符（英文大小写字母 + 数字）组成，且其长度等于参数值
+
+最终效果如下：
+
+def code_gen(length):
+    pass
+    assert len(activation_code) == length
+    return activation_code
+'''
+
+import random,string
+def getKey(n):
+    limit=50
+    keylist=[]
+    for i in range(limit):
+        wordlist=[]
+        for i in range(n):
+            wordlist.append(random.choice(random.choice([string.ascii_letters,str(random.randint(0,9))])))
+        key=''.join(wordlist)
+        keylist.append(key)
+    return keylist
+print(getKey(10))

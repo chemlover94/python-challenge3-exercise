@@ -1,0 +1,24 @@
+'''设计一个程序，统计某一个文件夹下的所有 .py 文件的文件数、代码行数、注释行数、空格数。
+'''
+#修改main函数中的path值到你对应的文件夹
+
+import re,os
+def count_code(file,x):
+    filename=file
+    with open(filename,encoding='utf-8') as f:
+        content=f.read()
+        result=len(re.findall(x,content))
+    return result
+def main():
+    path='D:/python_others/test'
+    count=0
+    for i in os.listdir(path):
+        if i.split('.')[-1]=='py':
+            count+=1
+    print('the num of  py files is {} '.format(count)+'\n')
+    for i in os.listdir(path):
+        if i.split('.')[-1]=='py':
+            print('in {} the total codelines, codenotes,codeblanks are {} lines,{} lines,{} blanks'.format
+                  (i,count_code(path+'/'+i,'\n'),count_code(path+'/'+i,'#'),count_code(path+'/'+i,' ')))
+if __name__=="__main__":
+    main()

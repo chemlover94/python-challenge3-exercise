@@ -1,0 +1,40 @@
+'''
+和前两天做过的『猜数字』一样，不过这次是设计一个能猜数字的AI
+
+1. 用户输入一个100以内的数字
+2. AI用最少的次数反复猜测数字
+3. 最终显示猜测的次数和数字。
+'''
+
+import random
+def guessAI():
+    unknow=int(input('import a inter in 0~100:'))
+
+    list=[i for i in range(0,101)]
+    guess=random.choice(list)
+    n=1
+    while guess!=unknow:
+        list.remove(guess)
+        guess=random.choice(list)
+        n+=1
+    else:
+        print('the unknow num is {},i have tried {}times, the rest number is {}'.format(guess,n,list))
+guessAI()
+ 
+ -------------------------------------------------------------------------------------------------------------
+(another good answer)
+def bi(unknow,tmp=100,bottom=0,top=100,count=0):
+    count+=1
+    if  tmp==unknow:
+        print('答对了',tmp,'共猜了',count,'次')
+    else:
+        tmp=int(bottom+top)/2
+        print(tmp)
+        if tmp>=unknow:
+            top=tmp
+            bi(unknow,tmp,bottom,top,count)
+        else:
+            bottom=tmp
+            bi(unknow,tmp,bottom,top,count)
+
+bi(13)

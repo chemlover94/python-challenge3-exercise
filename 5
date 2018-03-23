@@ -1,0 +1,24 @@
+'''
+写一个 .py 文件，并通过命令行参数的方式将一个 txt 文件路径作为参数传入，使该文章中所有的『的/地/得』分别转换成 『de1/de2/de3』，并将原内容输出为另一篇文章。
+
+最终需要实现：
+1. 执行 python example.py /path/to/the/txt/file.txt
+2. 替换『的/地/得』为『de1/de2/de3』
+3. 并在当前目录下生成 new_file.txt，原文件内容不变。
+'''
+#命令提示符下需修改字体，用cfcp 65001命令修改格式为utf-8，再修改字体格式为Lucida Console
+
+import re
+import sys
+
+def changeword():
+    address=sys.argv[1]
+    with open(address,encoding='utf-8')as f:
+        content=f.read()
+        changede1=re.sub('的','de1',content)
+        changede2=re.sub('地','de2', changede1)
+        changede3=re.sub('得','de3',changede2)
+    new_address=address.split('.')[0]
+    with open('\\'.join([i for i in new_address.split('\\')])+'changede123.txt','w',encoding='utf-8')as f:
+        f.write(changede3)
+changeword()

@@ -2,7 +2,7 @@
 你是一个软件开发者，现在需要随机生成50个激活码。写一个函数，其作用是根据参数生成激活码。
 
 1. 唯一的参数为一个正整数
-2. 函数生成的激活码由一串任意随机字符（英文大小写字母 + 数字）组成，且其长度等于参数值
+2. 函数生成的激活码由一串任意随机字符（英文大小写字母 + 数字 + 特殊字符）组成，且其长度等于参数值
 
 最终效果如下：
 
@@ -19,7 +19,8 @@ def getKey(n):
     for i in range(limit):
         wordlist=[]
         for i in range(n):
-            wordlist.append(random.choice(random.choice([string.ascii_letters,str(random.randint(0,9))])))
+            random_word=[string.ascii_letters,string.digits,string.punctuation]
+            wordlist.append(random.choice(random.choice(random_word)))
         key=''.join(wordlist)
         keylist.append(key)
     return keylist

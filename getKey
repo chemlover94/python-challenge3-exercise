@@ -19,8 +19,8 @@ def getKey(n):
     for i in range(limit):
         wordlist=[]
         for i in range(n):
-            random_word=[string.ascii_letters,string.digits,string.punctuation]
-            wordlist.append(random.choice(random.choice(random_word)))
+            random_word=string.ascii_letters+string.digits+string.punctuation
+            wordlist.append(random.choice(random_word))
         key=''.join(wordlist)
         keylist.append(key)
     return keylist

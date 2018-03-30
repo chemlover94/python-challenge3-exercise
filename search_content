@@ -1,0 +1,16 @@
+'''
+用户输入一个字符串，程序来判断是否是『回文诗』（即无论正读、反读，内容完全一致）
+字符串并不必须为中文，可以是数字、英文、符号等。
+'''
+
+def search_content(attr):
+    content=attr
+    list=[i for i in content]
+    list.reverse()
+    search=''.join(list)
+    if content==search:
+        print(content,search,'\n该句是回文体')
+    else:
+        print(content,search,'\n该句不是回文体')
+
+search_content('我很帅')
